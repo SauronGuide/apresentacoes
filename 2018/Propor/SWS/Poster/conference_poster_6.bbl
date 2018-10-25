@@ -1,0 +1,59 @@
+\begin{thebibliography}{10}
+
+\bibitem{fellbaum1998}
+Christiane Fellbaum.
+\newblock {\em WordNet}.
+\newblock Wiley Online Library, 1998.
+
+\bibitem{landauer2006latent}
+Thomas~K Landauer.
+\newblock {\em Latent semantic analysis}.
+\newblock Wiley Online Library, 2006.
+
+\bibitem{lin2003}
+Dekang Lin, Shaojun Zhao, Lijuan Qin, and Ming Zhou.
+\newblock Identifying synonyms among distributionally similar words.
+\newblock In {\em IJCAI}, volume~3, pages 1492--1493, 2003.
+
+\bibitem{mikolov2013}
+Tomas Mikolov, Ilya Sutskever, Kai Chen, Greg~S Corrado, and Jeff Dean.
+\newblock Distributed representations of words and phrases and their
+  compositionality.
+\newblock In {\em Advances in neural information processing systems}, pages
+  3111--3119, 2013.
+
+\bibitem{muller2006}
+Philippe Muller, Nabil Hathout, and Bruno Gaume.
+\newblock Synonym extraction using a semantic distance on a dictionary.
+\newblock In {\em Proceedings of the First Workshop on Graph Based Methods for
+  Natural Language Processing}, pages 65--72. Association for Computational
+  Linguistics, 2006.
+
+\bibitem{pennington2014glove}
+Jeffrey Pennington, Richard Socher, and Christopher Manning.
+\newblock Glove: Global vectors for word representation.
+\newblock In {\em Proceedings of the 2014 conference on empirical methods in
+  natural language processing (EMNLP)}, pages 1532--1543, 2014.
+
+\bibitem{scheible2013uncovering}
+Silke Scheible, Sabine~Schulte Im~Walde, and Sylvia Springorum.
+\newblock Uncovering distributional differences between synonyms and antonyms
+  in a word space model.
+\newblock In {\em IJCNLP}, pages 489--497. Citeseer, 2013.
+
+\bibitem{thalenberg2017}
+Bruna Thalenberg.
+\newblock Diferenciação entre sinônimos e antônimos em espaços lexicais,
+  2017.
+
+\bibitem{wang2009}
+Tong Wang and Graeme Hirst.
+\newblock Extracting synonyms from dictionary definitions.
+\newblock In {\em RANLP}, pages 471--477, 2009.
+
+\bibitem{widdows2004geometry}
+Dominic Widdows and Dominic Widdows.
+\newblock {\em Geometry and meaning}, volume 773.
+\newblock CSLI publications Stanford, 2004.
+
+\end{thebibliography}

@@ -1,0 +1,9 @@
+\beamer@endinputifotherversion {3.36pt}
+\select@language {portuguese}
+\beamer@sectionintoc {1}{Introdu\IeC {\c c}\IeC {\~a}o - A import\IeC {\^a}ncia dos dados}{3}{0}{1}
+\beamer@sectionintoc {2}{Dados Estruturados vs. Dados n\IeC {\~a}o-Estruturados}{8}{0}{2}
+\beamer@sectionintoc {3}{L\IeC {\'\i }ngua e Estrutura}{14}{0}{3}
+\beamer@sectionintoc {4}{Alguns m\IeC {\'e}todos}{21}{0}{4}
+\beamer@sectionintoc {5}{Alguns problemas}{30}{0}{5}
+\beamer@sectionintoc {6}{Estudo de caso: Projeto Cipoal}{36}{0}{6}
+\beamer@sectionintoc {7}{Bibliografia}{48}{0}{7}

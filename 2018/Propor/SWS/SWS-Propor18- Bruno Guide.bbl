@@ -1,0 +1,49 @@
+\begin{thebibliography}{10}
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\urlprefix}{URL }
+\providecommand{\doi}[1]{https://doi.org/#1}
+
+\bibitem{fellbaum1998}
+Fellbaum, C.: WordNet. Wiley Online Library (1998)
+
+\bibitem{landauer2006latent}
+Landauer, T.K.: Latent semantic analysis. Wiley Online Library (2006)
+
+\bibitem{lin2003}
+Lin, D., Zhao, S., Qin, L., Zhou, M.: Identifying synonyms among
+  distributionally similar words. In: IJCAI. vol.~3, pp. 1492--1493 (2003)
+
+\bibitem{mikolov2013}
+Mikolov, T., Sutskever, I., Chen, K., Corrado, G.S., Dean, J.: Distributed
+  representations of words and phrases and their compositionality. In: Advances
+  in neural information processing systems. pp. 3111--3119 (2013)
+
+\bibitem{muller2006}
+Muller, P., Hathout, N., Gaume, B.: Synonym extraction using a semantic
+  distance on a dictionary. In: Proceedings of the First Workshop on Graph
+  Based Methods for Natural Language Processing. pp. 65--72. Association for
+  Computational Linguistics (2006)
+
+\bibitem{pennington2014glove}
+Pennington, J., Socher, R., Manning, C.: Glove: Global vectors for word
+  representation. In: Proceedings of the 2014 conference on empirical methods
+  in natural language processing (EMNLP). pp. 1532--1543 (2014)
+
+\bibitem{scheible2013uncovering}
+Scheible, S., Im~Walde, S.S., Springorum, S.: Uncovering distributional
+  differences between synonyms and antonyms in a word space model. In: IJCNLP.
+  pp. 489--497. Citeseer (2013)
+
+\bibitem{thalenberg2017}
+Thalenberg, B.: Diferenciação entre sinônimos e antônimos em espaços
+  lexicais (2017)
+
+\bibitem{wang2009}
+Wang, T., Hirst, G.: Extracting synonyms from dictionary definitions. In:
+  RANLP. pp. 471--477 (2009)
+
+\bibitem{widdows2004geometry}
+Widdows, D., Widdows, D.: Geometry and meaning, vol.~773. CSLI publications
+  Stanford (2004)
+
+\end{thebibliography}

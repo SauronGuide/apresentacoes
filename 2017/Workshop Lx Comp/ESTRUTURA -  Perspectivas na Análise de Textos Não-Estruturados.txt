@@ -1,0 +1,44 @@
+Perspectivas na Análise de Textos Não-Estruturados
+
+0- Introdução
+0.1 linguistica computacional e a importância dos dados
+0.2 grande quantidade de informações disponíveis
+0.3 modelos cada vez mais data driven...
+---------------------------------------------------------------------------------------------------------------
+1-  Dados Estruturados vs. Dados não-Estruturados
+1.1 - Definição de dados estruturados
+1.2 - Exemplo
+1.3 - Mundo real: Exemplo de dados não-estruturados
+1.4 - Tabela comparando coisas como disponibilidade, organização, previsibilidade.
+1.5 - Para construir qualquer aplicação, é necessário estruturar o dado linguístico. A área de processamento de linguagem natural é justamente isso.
+---------------------------------------------------------------------------------------------------------------
+2-  Língua é Estruturada ou Não? Diferenças entre as estruturas
+GRANDE DISCLAIMER - Dado estruturado != Estrutura interna da língua [interna em termos de 'Estrutura atribuída ao sistema linguístico'].
+2.1- Maas, o modo de tornarmos o dado linguístico não estruturado em um dado bonito e processável pode se apoiar na estrutura interna da língua.
+2.2 - Isso é maravilhoso na teoria, parcerias entre linguistas e computeiros. Mas a estrutura interna da língua é um caos. Complexa pra caramba, ambígua até o osso, não monotônica, quanto mais você afunda, mais ela afunda... O que fazer com isso
+2.3- É importante diferenciar estruturações 'Deep' e 'Shallow'. Exemplo de análise 'deep' e análise 'shallow' de uma sentença.
+---------------------------------------------------------------------------------------------------------------
+3-  Alguns métodos de estruturação de dados linguísticos
+3.1- Expressões Regulares
+3.2- Lematização
+3.3- Tokenização
+3.4- POS-Tagging
+3.5- Semantic Role Labelling
+---------------------------------------------------------------------------------------------------------------
+4-  Alguns problemas na estruturação de dados linguísticos
+4.1 - Todos eles erram e a linguagem consegue facilmente quebrar qualquer sistema que a estruture nesses moldes.
+4.2 - Exemplos de erros
+4.3 - Estado da arte em algumas áreas
+4.4 - Noção de acerto - 90% de acerto é o suficiente?
+---------------------------------------------------------------------------------------------------------------
+5-  Estudo de caso 1: Extração de informações de Boletins de Ocorrência
+5.1 - Contexto
+5.2 - Como os dados foram gerados
+5.3 - Etapas de Solução
+5.4 - Resultado Final
+---------------------------------------------------------------------------------------------------------------
+6-  Estudo de caso 2: Projeto Cipoal: Explorando textos legislativos
+6.1 - Contexto
+6.2 - Como os dados foram gerados
+6.3 - Etapas de Solução
+6.4 - Resultado Parcial - Demonstração da Interface

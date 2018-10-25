@@ -1,0 +1,129 @@
+% This is samplepaper.tex, a sample chapter demonstrating the
+% LLNCS macro package for Springer Computer Science proceedings;
+% Version 2.20 of 2017/10/04
+%
+\RequirePackage{amsmath}
+\documentclass[runningheads]{llncs}
+%\documentclass[a4paper,12pt,oneside]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+%\usepackage{indentfirst}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{linguex}
+\usepackage{tipa}
+\usepackage{multirow}
+\usepackage{float}
+\restylefloat{table}
+\usepackage{booktabs}
+\usepackage{listings}
+\usepackage{longtable}
+\usepackage{textcomp}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage[pdftex, colorlinks=true, urlcolor=blue,citecolor=black]{hyperref}
+%\usepackage{floatrow}
+%\floatsetup[table]{capposition=top}
+%gera hiperlinks para as citações
+\usepackage{url} %gera link externo para as urls
+%\usepackage{natbib} %estrutura a bibliografia
+%\usepackage[square,sort,comma,numbers]{natbib}
+\usepackage[nottoc]{tocbibind} %referências na tabela
+
+%\usepackage[fixlanguage]{babelbib}
+%\selectbiblanguage{brazil}
+% Used for displaying a sample figure. If possible, figure files should
+% be included in EPS format.
+%
+% If you use the hyperref package, please uncomment the following line
+% to display URLs in blue roman font according to Springer's eBook style:
+% \renewcommand\UrlFont{\color{blue}\rmfamily}
+
+\begin{document}
+%
+\title{Automatically Extracting Synonyms in Brazilian Portuguese\thanks{Supported by the Linguistics Department of Sao Paulo University.}}
+%
+%\titlerunning{Abbreviated paper title}
+% If the paper title is too long for the running head, you can set
+% an abbreviated paper title here
+%
+\author{Bruno Ferrari Guide\inst{1}\inst{2}}
+%
+\authorrunning{B. Guide}
+% First names are abbreviated in the running head.
+% If there are more than two authors, 'et al.' is used.
+%
+\institute{University of Sao Paulo, Sao Paulo, Brazil \and
+	Verbio Technologies, Brazil\\
+	\email{bruno.fguide@gmail.com}\\}
+%
+\maketitle              % typeset the header of the contribution
+%
+\begin{abstract}
+While new models to represent meaning as multidimensional vectors (word embedding models) such as Word2Vec \cite{mikolov2013} are consistently accurate to determine measures such as meaning similarity and relatedness between words, those models are not efficient to identify if two words are related because they have the same meaning (synonyms), the opposite meaning (antonyms) or some group relation (such as hyponyms and hypernyms). The main goal of this research is to investigate the way vector models work to represent meaning, how they are limited and if their capacities can be complemented with other approaches in order to enrich the way they represent meaning. We will work not only by methodically describing meaning and the vector representation of meaning, but also by testing several different tools, such as WordNet, in a pipeline to see if substantial results in identifying synonyms can be obtained in an efficient way. This task will also require compiling a corpus of Synonym identification in Brazilian Portuguese.
+
+\keywords{Word Embedding  \and Synonym \and WordNet.}
+\end{abstract}
+%
+%
+%
+\section{Word Embeddings - Models}
+
+The project aims to describe several of the most prominent models of word embedding, not only due to the importance of mapping their inner works\footnote{Specially since there is a lack of material in Portuguese explaining those models to linguists.} but also to determine their limitations to represent meaning in natural language.\\
+
+Word embedding models are a way to represent words as vectors in vector spaces (usually with a big number of dimensions) that are based on some method of statistically representing language. A good model is one which the mathematical relations between different points on space have a resemblance with relations between specific words \cite{widdows2004geometry}.\\
+
+Those models are sold as a way to efficiently represent meaning in Cartesian spaces, which allows a sort of soft transposition between linguistic operations and algebraic ones. This becomes clear when we see, for instance, the idea of measuring vector distance as a way to determine if two words are closely related or not.\\   
+
+We aim to describe and scrutinize the functioning of Word2Vec \cite{mikolov2013}, LSA \cite{landauer2006latent}, and GloVe \cite{pennington2014glove} models. This list is far from being exhaustive and is clearly open to further analysis and development.\\ 
+
+Of course, meaning in natural language is an extremely complex concept and a highly pervasive one. Word embeddings are a way to formally express one of the aspects of meaning, and those sort of models are quite successful to do so, one initial goal of this project is to specify what dimensions of meaning are not represented by those models and then to proceed by analysing what other types of models can be combined with word embedding in creating more robust meaning representations.\\
+
+We aim to clearly establish what can be expected and what cannot in terms of representing meaning using this sort of tool.\\
+
+\section{Semantic Relations}
+
+From all the different ways that two or more words can be related, such as being part of the same group, having family relatedness, being opposites in meaning, one being a member or containing the other, we will focus on one specific semantic relation: Synonym.\\
+
+Synonym occurs when two words have the same meaning. A formal definition will be derived in this work in order to delimit the experimental phase that will come later in the research process.\\
+
+This definition will also be of vital importance to formulate adequate expectations from how synonym can even be represented in a way by word embedding models, a working hypothesis in this research is that this sort of model cannot formalize the aspect of meaning fundamental to recognizing synonyms.\\ 
+
+This semantic relation was chosen due to the fact that there is already some strong research work done about it, such as \cite{fellbaum1998}, \cite{scheible2013uncovering}, \cite{lin2003},\cite{muller2006}, \cite{wang2009}, \cite{thalenberg2017}. This provides a solid ground from which to build up, and we intend to develop a framework to allow further research about synonym and meaning representation to be done in a more consistent way.\\
+
+\section{WordNet and other tools}
+
+Parallel to the theoretical discussion already presented, we will work on implementing all the word embedding models that will be analyzed. Those implementations will feed the next phase of the research, which will combine word embedding with automatic synonym detection models.\\
+
+Those models will be built by allying word embedding models with knowledge tools such as Wordnet, thesauri, dictionaries, and ontologies \footnote{There is also a possibility to implement naive probabilistic models to try to automatically identify Synonyms.}. The idea here is to come up with several possible solutions to the matter of automatic synonym extraction.\\
+
+We believe that if the computational models are not quite adequate to the matter at hand, there is a possibility that if they are combined with knowledge-rich solutions, the results will be worthy.\\
+
+
+\section{Corpus and Testing}
+
+A final important aspect of this research is that it is not only focused on a theoretical discussion regarding meaning. We also intend to build a corpus that will be useful to test models in recognizing semantic relations between words and also to identify specifically synonyms amongst related words.\\
+
+From this development, we expect to be able to test different approaches to this task and compare the results, which would generate quantitative input to the theoretical discussion, a recurrent theme in the author's research.\\
+
+The initial idea of the corpus is to gather a vast amount of groups of sentences, each group would consist of sentences that are almost identical, except for one noun or verb. The varying words of each group would be synonyms, antonyms, non-related or related words amongst themselves. Each sentence of each group would be paired with all the other sentences of that group and that pair would get a label representing if their meaning is equal, opposite or just different. From that, a successful model would correctly predict the label of a sentence pair when it should be equal (that is, the only different word between those two sentences are synonyms.).\\
+
+From this corpus, each and every proposed model will be tested, cross-validated and then a quantitative discussion about the success rates of the models will be made.\\
+
+
+
+%
+% ---- Bibliography ----
+%
+% BibTeX users should specify bibliography style 'splncs04'.
+% References will then be sorted and formatted in the correct style.
+%
+ \bibliographystyle{splncs04}
+ \bibliography{projeto-bib}
+%
+
+
+\end{document}

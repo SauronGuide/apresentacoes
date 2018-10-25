@@ -1,0 +1,147 @@
+Apresentação - Roteiro
+
+25 min:
+
+#1 Tópicos:
+
+Objetivos do projeto
+
+Resumo
+
+Resultados
+
+
+#2 Objetivos:
+
+Questões centrais que eu trabalhei no projeto, aqui divido em 3 pontos centrais:
+
+	1- Revisar parte da literatura sobre o acento.
+	Em específico, três trabalhos constituem o núcleo dos textos analisados - Bisol (1992), Lee (1995) e Hermans & Wetzels (2012).
+
+	2- A partir de dados coletados do idioma, apresentar uma análise quantitativa sobre o comportamento do acento em relação a algumas variáveis linguísticas.
+	Essa análise, permitida pela automação de alguns processos como transcrição e acentuação, buscou detalhar o funcionamento do acento no idioma.
+
+	3- Implementar modelos computacionais preditivos do acento. Analisar e discutir os resultados obtidos com eles.
+	Os modelos preditivos baseados nas propostas teóricas para o tratamento do acento e os modelos probabilísticos implementados formam o que baseia a discussão apresentada no projeto. Quais mecanismos probabilísticos são capazes de capturar melhor as nuances do comportamento do acento? Quais informações devem ser levadas em conta para que essa previsão seja feita mais corretamente?
+
+
+#3 Sobre o acento - 2 tendências
+Ler Slide
+#4 Sobre o acento - 2 tendências?
+Ler Slide
+
+- Quando eu começar a falar sobre os resultados, retomarei a descrição dos resultados obtidos.
+
+#5 Sobre modelos probabilísticos
+ler slide
+
+#6 Modelos implementados e propostas analisadas
+Esses foram os modelos implementados ao longo do projeto.
+
+As propostas analisadas foram as soluções para a questão do acento propostas por Bisol e Lee- se levou em consideração como certo o que cada teoria considera como caso não-marcado do idioma.
+Os modelos probabilísticos atribuem probabilidade de uma determinada palavra pertencer a uma categoria de acento usando diferentes métodos para fazer essa atribuição.
+O modelo baseline funciona para estabelecer um padrão para comparação.
+
+#7 Análise das propostas e baseline
+ler slide
+
+Aqui eu defini uma análise das propostas de Lee e Bisol ao considerar como 'acertos' das abordagens o que elas prevêem sem fazer uso de marcações arbitrárias. No caso de bisol (1992), eu desconsiderei a consoante abstrata final presente em oxítonas terminadas em sílaba leve e a aplicação da extrametricidade para as paroxítonas terminadas em sílaba pesada e proparoxítonas. No caso de Lee (1995), considerei as regras que tratavam dos casos não-marcados.
+
+#8 exemplo - ngramas
+
+Para tratar dos modelos probabilísticos, vou apresentar exemplos de como as probabilidades foram atribuidas
+
+O modelo de n-gramas atribui probabilidades a partir das subcadeias  que compõem uma palavra. A ideia aqui é que foi possível desenvolver um modelo computacionalmente eficiente que se baseia nos padrões observados no corpus. Esse mecanismo parte de dados observados e é capaz de prever o comportamento do acento, inclusive podendo lidar com palavras que não estavam no corpus de treinamento.
+
+
+Os modelos de n-grama foram divididos de acordo com o tamanho de 'n' (bi-gramas onde as sequências são compostas de dois segmentos e tri-gramas onde são compostas por 3)
+
+
+#9 exemplo - classificador bayesiano ingenuo
+
+O modelo do classificador permite atribuir probabilidade a palavras acentuadas baseado em dois pontos:
+em primeiro lugar, probabilidades a priori extraídas do corpus.
+Em segundo lugar, a palavra não é considerada uma sequência de segmentos, como era no caso dos n-gramas, mas sim um vetor de características.
+
+Isso permitiu construir uma análise que levasse em consideração outras dimensões da língua para a atribuição do acento.
+
+
+#10 implementação
+
+Para terminar o resumo, uma breve apresentação da metodologia utilizada para obter os resultados apresentados.
+ler slide
+
+#11 Resultados
+
+#12 Desempenho do modelo baseado em Bisol (1992) para os
+não-verbos
+
+O modelo baseado na proposta de Bisol para tratar do acento prevê, sem o uso da marcação arbitrátia, apenas as paroxítonas terminadas em sílaba leve e as oxítonas terminadas em sílaba pesada. No entanto, é importante observar que esses são os grupos majoritários do idioma.
+
+#13  Desempenho do modeo baseado em lee (1995) para os não-verbos
+
+Os não-verbos considerados não marcados pela proposta de Lee são as paroxítonas, tanto as terminadas em sílaba leve quanto as terminadas em sílaba pesada.
+
+#14 Desempenho do modelo baseado em bisol (1992) para os verbos
+
+Mesma coisa do que para os não-verbos, paroxítonas leves e oxítonas pesadas constituem os grupos mais populosos e são inclusas no padrão que dispensa o uso da marcação arbitrária neste modelo.
+
+O total das palavras previstas sem o uso de marcação arbitrária por Bisol foi de 80,10%
+
+#15 Desempenho do modelo baseado em Lee (1995) para os verbos
+
+Para os verbos, o modelo que considera apenas os casos não-marcados da proposta de Lee, é capaz de prever corretamente o acento para as oxítonas leves e pesadas e para as paroxítonas leves. com isso, esse modelo engloba os três grupos mais populosos.
+
+O total das palavras previstas sem o uso de marcação arbitrária por Bisol foi de 73,71%.
+
+#16 Resultado N- Gramas
+
+Os resultados obtidos por esse modelo, quando baseado em segmentos, mostra que apesar de computacionalmente simples, os ngramas são capazes de modelar, ainda que imperfeitamente, o comportamento do acento. Usando apenas informações sobre começo e final de palavra e estrutura silábica além dos próprios segmentos, o modelo que só enxerga as sequências que compõem uma palavra foi capaz de prever com sucesso cerca de 72% das palavras no caso dos bigramas e de 79% das palavras no caso dos trigramas.
+
+Isso indica que aumentar o tamanho da cadeia foi uma medida que melhorou o desempenho do modelo, no entanto, é complicado ir além do tamanho apresentado, visto que a quantidade de dados necessários é maior e o problema explode exponencialmente.
+
+Uma observação interessante é a de que os modelos baseados em tipos, que não levam em conta as repetições do corpus, foram melhores do que os modelos baseados em ocorrências.
+
+ #17 Resultado N-gramas
+
+ No entanto, a implementação do modelo de n-gramas usando as sílabas como unidade ao invés do segmento foi bem pouco eficiente para prever o acento.
+
+Esse modelo rodou em um corpus usando apenas palavras com três ou mais sílabas.
+
+No entanto, essa ineficiência se dá pelo fato de que há uma presença muito maior de palavras de 3 sílabas do que de palavras maiores, uma palavra era então um trigrama, isso atrapalhou em muito a capacidade que um modelo de n-gramas tem de se adaptar a sequêcias que não foram vistas no corpus de treino.
+
+#17 Resultado CBI
+
+O classificador Bayesiano ingênuo para a questão do acento leva em conta a probabilidade a priori de qualquer palavra pertencer a uma categoria acentual. Como as paroxítonas são mais comuns no idioma, esse modelo já permite que a probabilidade de qualquer palavra ser paroxítona seja favorecida.
+
+No entanto, o modelo leva em conta diversas outras variáveis para fazer essa atribuição, no caso a minha implementação final do CBI contou com as seguintes 3 variáveis.
+
+ler slide
+
+#18 Tabela CBI
+
+Como eu posso escolher qual variávei vai entrar na análise, eu posso criar diferentes modelos que levam em conta uma variavel só, duas delas, as três...
+
+Cada um desses modelos foi testado de acordo com a metodologia apresentada, isso criou essa tabela.
+
+É notável que o modelo mais bem sucedido tenha se valido apenas da variável Estrutura silábica. Isso não surpreende tanto visto que a estrutura silábica contém a representação do peso silábico final de uma palavra. No entanto, um fato curioso é que a variável estrutura silábica foi mais bem sucedida que a variável peso da sílaba final. O fato de que E é menos categórica que peso silábico (Leve/Pesado) auxiliou na atribuição correta de acento para mais casos do idioma.
+
+Os resultados obtidos pelo CBI foram bastante encorajadores. O uso da probabilidade a priori junto do uso de variáveis linguísticas permitiu a criação de um modelo bastante capaz de prever a categoria acentual de uma palavra do corpus.
+
+No entanto, coleções diferentes de variáveis podem aumentar ainda mais o desempenho desse tipo de modelo.
+
+#19 Resultados Geral
+
+Aqui é possível alguns dos modelos testados. É interessante notar que os modelos probabilísticos possuem alto desempenho para formalizar a questão do acento.
+
+# 20 Table Geral
+
+Essa é a tabela que o gráfico anterior representa.
+Uma observação importante é que os modelos probabilísticos não são soluções completas para a questão do acento, nem são justificativa para que se descarte o uso da marcação arbitrária como fundamental para o entendimento do acento.
+
+#21 Conclusões
+
+Ler slide
+
+
+
