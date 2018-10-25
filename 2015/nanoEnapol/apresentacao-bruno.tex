@@ -1,0 +1,265 @@
+\documentclass[xcolor=table]{beamer}
+\usetheme{Frankfurt}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[brazil]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{adjustbox}
+\usepackage{multirow}
+
+\author{Bruno Ferrari Guide}
+\title{Modelo de N-gramas para a questão do acento no Português Brasileiro}
+%\subtitle{}
+%\logo{}
+\institute{Orientador: Marcelo Barra Ferreira\\ Departamento de Linguística - FFLCH - USP}
+\date{17 de dezembro de 2015}
+%\subject{}
+%\setbeamercovered{transparent}
+%\setbeamertemplate{navigation symbols}{}
+
+\begin{document}
+	%1
+	\maketitle
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\section{Introdução}
+	%2
+	\begin{frame}
+		\frametitle{Introdução}
+		\begin{itemize}
+			\item Tópicos dessa apresentação:\\
+			\begin{itemize}
+				\item Objetivos\\
+				\item Sobre o acento\\
+				\item Modelos\\
+				\item N-gramas\\
+				\item Perspectivas\\
+			\end{itemize}
+		\end{itemize}
+	\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\section{Objetivos}
+	%3
+	\begin{frame}
+		\centering
+		\textbf{Objetivos}
+	\end{frame}
+	\begin{frame}
+		\frametitle{Objetivo Geral}
+		\begin{itemize}
+			\item Implementar modelos computacionais capazes de\\ atribuir probabilidades às diferentes versões acentuadas\\ de uma palavra.\\
+			
+			
+		\end{itemize}
+	\end{frame}
+	%4
+	\begin{frame}
+		\frametitle{Objetivos Específicos}
+		\begin{itemize}
+			\item Traçar um perfil detalhado do acento no Português Brasileiro (PB).\\
+			\item Implementar e testar algoritmos baseados nas soluções teóricas estudadas.\\
+			\item Aplicar ferramentas computacionais disponíveis para desenvolver abordagens ao problema.\\
+			
+		\end{itemize}
+		
+	\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Sobre o acento}
+	%5
+	
+	\begin{frame}
+	\centering	
+		\textbf{Sobre o acento}
+	\end{frame}
+	\begin{frame}
+		\frametitle{Sobre o acento}
+		\begin{itemize}
+			\item O acento no PB pode recair nas últimas três sílabas da palavra, a partir disso temos as três categorias acentuais: oxítonas, paroxítonas e proparoxítonas.\\
+			\item O acento é regular, porém tem irregularidades.\\
+			\item O acento é irregular, porém tem regularidades.\\
+			
+		\end{itemize}
+	
+	\end{frame}
+	\begin{frame}
+		\frametitle{Panorama do acento no PB}
+		
+		\begin{table}[H]
+			\centering
+			\begin{tabular}{@{}l|l|l|l|l@{}}
+				\toprule
+				\begin{tabular}[c]{@{}l@{}}Categoria\\   Acentual\end{tabular} & Ocorrências & \%      & Tipos  & \%      \\ \midrule
+				Oxítona                                                        & 985.587     & 40,20\% & 28.037 & 30,50\% \\
+				Paroxítona                                                     & 1.407.433   & 57,41\% & 60.186 & 65,48\% \\
+				Proparoxítona                                                  & 58.447      & 2,38\%  & 3.694  & 4,02\%  \\
+				\textbf{Total}                                                          & \textbf{2.451.467}   & \textbf{100\%}   & \textbf{91.917} & \textbf{100\%}   \\ \bottomrule
+			\end{tabular}
+		\end{table}
+		
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{Comportamento do acento}
+			\begin{table}[h]
+				\centering
+				\resizebox{\textwidth}{!}{%
+				\begin{tabular}{@{}l|l@{}}
+					\toprule
+					Padrão Previsível                                                                   & Padrão Imprevisível                                                                                                                                                                            \\ \midrule
+					\begin{tabular}[c]{@{}l@{}}Verbos – todos\end{tabular}                          & \multirow{4}{*}{\begin{tabular}[c]{@{}l@{}}Não-verbos não-derivados\\ Proparoxítonas\\       Oxítonas terminados em vogal\\       Paroxítonas terminadas em consoantes\end{tabular}} \\
+					\begin{tabular}[c]{@{}l@{}}Não– Verbos derivados morfologicamente\end{tabular} &                                                                                                                                                                                                \\
+					\begin{tabular}[c]{@{}l@{}}Oxítonas terminadas em consoante\end{tabular}        &                                                                                                                                                                                                \\
+					\begin{tabular}[c]{@{}l@{}}Paroxítonas terminadas em vogal\end{tabular}                                                                                                                                                                                                         
+				\end{tabular}
+			}
+			\end{table}
+	\end{frame}
+	\begin{frame}{Teorias sobre a questão}
+		\begin{itemize}
+			\item Abordagem Lexicalista - Câmara (1975)\\
+			\item Abordagens Métricas:
+			\begin{itemize}
+				\item Bisol (1992)\\
+				\item Lee (1995)\\
+			\end{itemize}
+			\item Existe sempre em alguma medida arbitrariedade no comportamento do acento.\\
+		\end{itemize}		
+	\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Modelos}
+	%6
+		\begin{frame}
+			\centering	
+			\textbf{Modelos}
+		\end{frame}
+	\begin{frame}
+		\frametitle{Definição de modelo}
+		\begin{itemize}
+			\item \textit{\textbf{model} (n): a miniature representation of something; a pattern of something
+			to be made; an example for imitation or emulation; a description or
+			analogy used to help visualize something (e.g., an atom) that cannot be directly
+			observed; a system of postulates, data and inferences presented as a
+			mathematical description of an entity or state of affairs.}\\
+			\item \textit{\textbf{mathematical model} (n): a representation in mathematical terms of the behavior of real devices and objects}\\
+			\item Comparar modelos distintos não é uma tarefa trivial.\\
+			\end{itemize}
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Modelos Probabilísticos}
+		\begin{itemize}
+		\item A ideia é que modelos probabilísticos podem dar um tratamento mais sensível às irregularidades do comportamento do acento do que modelos categóricos que necessariamente exigem algum tipo de marcação arbitrária para cobrir os dados.\\
+		\item Algum objeto investigado de comportamento mais regular não exigiria um modelo probabilístico para formalizar seu funcionamento, como é o caso da silabificação. (Guide, 2013)
+		\end{itemize}
+	\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{N-gramas}
+%6
+	\begin{frame}
+		\centering	
+		\textbf{N-gramas}
+	\end{frame}
+\begin{frame}
+	\frametitle{N-Gramas: Ponto de Partida}
+	\begin{itemize}
+		\item Esse modelo parte do pressuposto que o objeto de estudo é uma sequência de eventos aleatórios. (O modelo de língua subjacente é, portanto, muito simples.)\\
+		\item Além disso, a ideia é que se pode atribuir à um desses eventos a sua probabilidade a partir da probabilidade condicional não da sequência inteira da qual ele faz parte, mas somente da sequência composta pelos N elementos que o antecedem. (Cadeia de Markov de tamanho N).\\ 
+	\end{itemize}
+	{\small P(X$_{i+1}$=x$\mid$ X$_{1}$=x$_{1}$,X$_{2}$=x$_{2}$,$\ldots$ ,X$_{i}$=x$_{i}$)=P(X$_{i+1}$=x$\mid$ X$_{i}$=x$_{i}$ $\ldots$ X$_{i-N}$=x$_{i-N}$) }
+\end{frame}
+
+\begin{frame}
+	\frametitle{Funcionamento do modelo para a questão do acento}
+	\begin{itemize}
+		\item Se atribui uma probabilidade a partir do modelo para cada uma das versões acentuadas de uma palavra a partir das frequências extraídas do Corpus.\\
+		\item A palavra é quebrada nos n-gramas que a compõe e a probabilidade final é o produto das probabilidades dos n-gramas que a compõe.\\
+		\item Ex: (num modelo de bi-gramas)
+			\begin{itemize}
+				\item P(\&\textbf{es}trela*) = P(\textbf{e}$\mid$\&)* P(\textbf{s}$\mid$\textbf{e})* P(t$\mid$\textbf{s})...\\
+				\item P(\&es\textbf{tre}la*) = P(e$\mid$\&)* P(s$\mid$e)* P(t$\mid$s)...\\
+				\item P(\&estre\textbf{la}) = P(e$\mid$\&)* P(s$\mid$e)* P(t$\mid$s)...\\
+				a partir da noção de que:\\
+				\item P(e$\mid$\&) = $\dfrac{C(\&e)}{C(\&)}$
+				
+				
+				
+			\end{itemize}
+	\end{itemize}
+\end{frame}
+\begin{frame}
+	\frametitle{N-Gramas: Implementação e questões computacionais}
+	\begin{itemize}
+		\item Feita em Python\\
+		\item Qual o tamanho de N?\\
+		\begin{itemize}
+			\item Quanto maior N, mais informativo é o modelo.\\
+			\item Quanto maior N, mais esparsos os dados, maior o corpus necessário para conseguir trabalhar. (explosão exponencial)\\
+		\end{itemize}
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{N-Gramas: Implementação e questões linguísticas}
+	\begin{itemize}
+		\item O que é considerado uma palavra?\\
+		\item O modelo de língua vai dar mais peso para palavras mais frequentes? Ou todas serão consideradas iguais?\\
+		\item Palavras com menos de 3 sílabas não acabam criando um enviesamento contra as proparoxítonas?\\
+	\end{itemize}
+	A partir desses questionamentos, uma série de modelos de N-gramas distintos é proposta.
+	
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Modelos de N-gramas Propostos}
+	\begin{itemize}
+		\item Modelo de Bigramas baseado em tipos\\
+		\item Modelo de Bigramas baseado em ocorrências\\
+		\item Modelo de Trigramas baseado em tipos\\
+		\item Modelo de Trigramas baseado em ocorrências\\
+	\end{itemize}
+	Cada um dos modelos ainda vai ser testado também levando em conta uma versão do Corpus SEM as palavras com menos de duas sílabas.\\
+	Além disso, também é interessante testar modelos que considerem a palavra não uma sequência de sons, mas sim de sílabas.\\
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\section{Perspectivas}
+	%13
+		\begin{frame}
+			\centering	
+			\textbf{Perspectivas}
+		\end{frame}
+	\begin{frame}
+		\frametitle{Modelo de N-gramas: Resultados}
+		\begin{itemize}
+			\item Treinar os modelos no corpus de treino e depois testá-los.\\
+			\item Tabular os desempenhos dos modelos distintos e analisar os resultados.\\
+		\end{itemize}
+	\end{frame}
+	%8
+	
+	\begin{frame} 
+		\frametitle{Modelo do Classificador Bayesiano Ingênuo}
+		\begin{itemize}
+			\item Este modelo será a análise probabilística proposta mais completa.\\
+			\item Implementações comuns desse modelo estão sendo estudadas.\\
+			\item O script do Classificador irá atribuir probabilidades a possíveis formas acentuadas de uma palavra baseado na relação entre todos os diversos \textit{features} representados no corpus com as categorias acentuais.\\
+			\item A partir disso, análises de desempenho irão promover novas versões do classificador, considerando um conjunto de variáveis distinto (por exemplo, excluindo a frequência da palavra como \textit{feature})\\
+		\end{itemize}
+	\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	%20
+	\begin{frame}
+		\frametitle{}
+		\centering
+		\huge{Obrigado!}
+	\end{frame}
+\end{document}

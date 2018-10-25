@@ -1,0 +1,8 @@
+\beamer@endinputifotherversion {3.36pt}
+\select@language {brazil}
+\beamer@sectionintoc {1}{Introdu\IeC {\c c}\IeC {\~a}o}{2}{0}{1}
+\beamer@sectionintoc {2}{Objetivos}{3}{0}{2}
+\beamer@sectionintoc {3}{Sobre o acento}{6}{0}{3}
+\beamer@sectionintoc {4}{Modelos}{11}{0}{4}
+\beamer@sectionintoc {5}{N-gramas}{14}{0}{5}
+\beamer@sectionintoc {6}{Perspectivas}{20}{0}{6}
