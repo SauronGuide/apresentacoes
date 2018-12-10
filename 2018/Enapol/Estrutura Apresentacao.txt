@@ -1,0 +1,106 @@
+Enapol 2018
+
+Apresentação 15 minutos
+
+Representando significado com vetores
+
+Abordagens recentes do campo da linguística computacional se propõem a representar relações semânticas entre palavras a partir de relações lineares entre vetores multidimensionais representando aquelas palavras. Esse tipo de representação remonta a abordagens da chamada semântica distribucional, perspectiva de estudo do significado a partir da distribuição das palavras em coleções de dados linguísticos, cuja máxima básica é: palavras com significados parecidos ocorrem em contextos parecidos. A explosão de dados e o aumento da capacidade de processamento disponíveis tornaram possível a implementação desse tipo de modelo de modo que seu funcionamento global não é interpretável para seres humanos, ao mesmo tempo em que obtém resultados interessantes em tarefas distintas de processamento de linguagem natural. Essa comunicação tem a intenção de apresentar os fundamentos desse tipo de representação do significado em sua roupagem mais recente: métodos de contagem, matrizes documento por termo e métodos de cálculo de distância entre vetores. Também serão elencados alguns questionamentos pontuais e fundamentais que a linguística pode trazer para esse tipo de abordagem. A partir desse ponto, apresentarei alguns exemplos das aplicações das medidas de similaridade entre os vetores e como esses resultados tornam possíveis determinados tipos de aplicações linguísticas, ao mesmo tempo em que possuem problemas que não são facilmente contornáveis, o que constitui o cerne do projeto de pesquisa do autor.
+
+
+
+1- Vetorizando a língua (tf, idf, tf-idf)
+	-Juntando e Contando coisas- corpora e estatística
+	Corpus = conjunto de dados linguísticos - texto ou conjunto de textos escritos, quanto mais dados melhor. Servem para treinar modelos de predição, para fazer análises sobre um determinado conjunto de dados.
+	As técnicas para contabilzar dados e extrair informações de um conjunto de dados estão reunidas no campo da estatística.
+
+	-TF
+	Explicar as fórmulas: binária, Contagem bruta, normalização pelo numero total de palavras no documento
+
+	-Matriz de termos-documentos
+	se o corpus for uma coleçao de documentos, é possível organizar as contagens de termos em uma matriz, esse tipo de organização é útil e extremamente produtivo
+	cada linha é um item do vocabulário geral, cada coluna um documento
+
+	-IDF
+	Frequência de documento inversa - é uma medida que serve para dar mais peso para palavras que ocorrem pouco no corpus, só pode ser gerada em uma matriz de termos-documentos e é um número constante para cada termo do vocabulário em um determinado corpus
+
+	explicar a fórmula - log(N é o número total de documentos/ |total de documentos em que o termo aparece|) <- o log é pra linearizar as coisas, tornando a unidade mais 'achatada' a diferença entre um termo que tem 100/1 e um que tem 100/10, ao invés de ser de 90, passa a ser de 1.
+
+
+
+	-TF-IDF
+	Essa medida multiplica as duas medidas, dessa forma, um item que é muito frequente em um documento, mas raro na coleção de documentos, passa a ter um valor muito mais alto que um documento que ocorre muito em todos os documentos.
+	é informativa, mas pontuo dois pontos:
+	1- o valor do tf-idf um termo em um documento só faz sentido ao saber do que se trata a coleção de documentos, é sensível ao corpus
+	2- é uma medida informativa mas é um tipo de representação ligeiramente distribuida
+
+2- Um breve desvio: Vetores, Álgebra e Geometria
+
+	-Plano cartesiano 
+	a grande vantagem é o fato dessa construção teórica relacionar álgebra e geometria. Isso permite, de um jeito super grosseiro, juntar números com medidas e noções espaciais
+
+	-Ponto e vetor 
+	GROSSO MODO, por favor não morram com as breves cortadas de caminho que eu vou dar aqui: um ponto no plano cartesiano pode ser representado por um par ordenado de coordenadas [x,y], em um espaço trdimensional podemos representar um ponto com um trio ordenado [x,y,z], e por aí vai, independente de quantas dimensões você queira.
+	Todo ponto pode ser representado como um vetor que sai da origem e vai até o lugar determinado por aquela coordenada.
+	Vetor é representado como uma sequencia ordenada de valores [x,y,z,alpha,beta]
+	Palavras e vetores!
+	-O TF-IDF de um termo em uma coleção de documentos é um vetor!
+
+	-Distância entre vetores (distancia cartesiana, cosseno) 
+	uma vez que temos os vetores e que temos a relação entre geometria e álgebra, conseguimos fazer operações com esses objetos, como soma, cálculo de distância, multiplicação escalar, não vou entrar em detalhes, mas é interessante ficarmos com isso em mente.
+
+
+3- Vetores esparsos e vetores densos
+
+	-A Maldição da dimensionalidade
+	Se pegarmos um corpus grande, por exemplo, todos os 1 007 000 textos da wikipedia, cada um deles uma coluna da tabela, e uma linha para cada palavra, temos uma tabela útil?
+	A maioria das palavras não acontece em quase nenhum documento, estariamos olhando para uma tabela composta majoritariamente por Zeros.
+	Além disso, existe um grande problema computacional que deve ser resolvido, a chamada maldição da dimensionalidade. Essas matrizes vazias são péssimas de se fazer operações, cada operação fica muito pesada. 
+	A solução está em representações de palavras em vetores densos
+
+	-Vetores esparsos e densos, quadro comparativo entre eles 
+	vantagens: facilmente interpretável por um humano, no entanto cheio de zeros, cálculo extremamente lento (maldição da dimensionalidade). por outro lado, não facilmente interpretável por um humano, muito melhor para calcular, muito mais informativo (em termos matemáticos)) [ Com a manipulação de algumas propriedades matemáticas das matrizes os modelos deixam de ser interpretáveis por humanso, é uma consequência da distribucionalidade, comparar com uma visão distribucional do cérebro. A matriz inteira sabemos o que significa, mas os valores individuais deixam de ser mapeáveis]
+
+	-Métodos de 'adensamento' de vetores 
+	Existem métodos de produção de vetores densos, podendo partir de vetores esparsos como os que apresentei, ou então a partir de outros, como o one-hot encoding.
+	Dentre esses métodos temos: análise semântica latente (com redução de dimensionalidade), rede neural (um sistema que se organiza a partir vetores, faz algumas operações e gera vetores densos)
+	modelos de vetores densos a partir de redes neurais famosos são  o w2v, Glove
+	
+	-Sucesso dessa abordagem
+	são golden standard para diversas tarefas, deixaram de ser para algumas mas ainda fazem parte de diversas estruturas extremamente bem sucedidas na formalização da língua.
+	as regiões ficam mais ou menos como vemos nessa figura. claro que essa é uma representação bidimensional de um vetor de 100 dimensões...
+
+4- Noções linguísticas subjacentes
+	-Operações similaridade
+	Agora vou focar na anáise de vetores gerados por um desses modelos densos que apresentei.
+	Vetor que de alguma forma está codificando algum tipo de semântica de um determinado item lexical
+	É possível ver que palavras com significados de uso próximos estão em regiões parecidas do espaço. No caso important tem próximo crucial, essential, vital. e uma de proximdade de uso, particular.
+
+	-Operações linearidades
+	Outro tipo de operação interessantissimo é que existem relações lineares entre vetores de palavras, países para capitais, versões masculinas e femininas de determinados substantitvos... 
+	Além disso, é possível subtrair um vetor 'Homem' do vetor 'Rei' e somar o vetor 'mulher' que o vetor resultante é muito próximo do vetor 'rainha'
+
+	- O que um vetor codifica?
+	Na linha do vetor esparso TF-IDF que eu mostrei, o valor individual que o vetor de uma palavra tem em cada dimensão não é interpretável isoladamente, mas na verdade nem a DIMENSÃO é por si só interpretável. Não é possível dizer que a dimensão X representa um campo semântico ou algo assim, na verdade elas representam alguma distribuição de características semânticas que simplemente não são interpretáveis.
+	No entanto, é evidente que o quadro geral representa alguma noção de significado lexical. é uma coisa super conexionista mesmo, em termos de 'estados gerais vs. simbolos discretos'.
+	
+
+5- Limitações e problemas
+	-sensibilidade ao corpus
+	É sensível ao corpus em que foi treinado
+	-contrapartida linguistica
+	Formalização matemática ótima, mas qual é a contrapartida linguistica?
+	Não sabemos o que são exatamente as dimensões, nem é um modelo interpretável, sabemos ainda menos o que significa a proximidade entre dois vetores de palavra 
+	Temos todo um ferramental da matemática que ganhamos com esse tipo de representação, mas o que exatamente ele significa para uma teoria linguistica, se é que sequer significa alguma coisa. 
+	-Próximos passos
+
+
+	-bib
+	- jurafsky*
+	- mikolov*
+	- nilc
+	- tensorflow*
+	- blog
+	- bengio*
+	- manning info retrieval*
+	- math for machine learning
+	- widdows*

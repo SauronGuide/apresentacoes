@@ -1,0 +1,15 @@
+\beamer@slide {fig:contando}{4}
+\beamer@slide {fig:tf}{5}
+\beamer@slide {fig:matriz}{6}
+\beamer@slide {fig:idf}{7}
+\beamer@slide {fig:tf-idfshort}{8}
+\beamer@slide {fig:descartes1}{10}
+\beamer@slide {fig:vectordimensions}{11}
+\beamer@slide {fig:wordvectors}{12}
+\beamer@slide {fig:cosinesim}{13}
+\beamer@slide {fig:spm}{15}
+\beamer@slide {fig:bengio03}{17}
+\beamer@slide {fig:w2v-tensorflow}{20}
+\beamer@slide {fig:linearidades-2}{21}
+\beamer@slide {fig:fields-to-vectors-all-words2}{22}
+\beamer@slide {fig:curse-of-dimensionality}{27}

@@ -1,0 +1,7 @@
+\babel@toc {brazil}{}
+\beamer@sectionintoc {1}{Vetorizando a L\IeC {\'\i }ngua}{3}{0}{1}
+\beamer@sectionintoc {2}{Um breve desvio: Vetores, \IeC {\'A}lgebra e Geometria}{9}{0}{2}
+\beamer@sectionintoc {3}{Vetores Esparsos e Densos}{14}{0}{3}
+\beamer@sectionintoc {4}{No\IeC {\c c}\IeC {\~o}es Lingu\IeC {\'\i }sticas Subjacentes}{19}{0}{4}
+\beamer@sectionintoc {5}{Limita\IeC {\c c}\IeC {\~o}es e problemas}{23}{0}{5}
+\beamer@sectionintoc {6}{Bibliografia}{26}{0}{6}

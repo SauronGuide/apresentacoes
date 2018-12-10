@@ -1,0 +1,8 @@
+\frametitle{Infernal no SICK-BR}
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\linewidth]{Infernal-SICK-BR}
+	\caption{Resultados de modelos baseados nos features do Infernal no SICK-BR}
+	\label{fig:infernal-sick-br}
+\end{figure}
+
