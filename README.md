@@ -2,8 +2,9 @@
 
 Repo para salvar apresentações e comunicações apresentadas desde 2015.
 
-*Lista de conteúdos*
 
+Lista de conteúdos
+---------------------------------
 2015
 
 Evento: ENAPOL (Encontro dos alunos de pós-graduação em linguística)
@@ -14,7 +15,7 @@ Título: Acento no Português Brasilero: Análise Quantitativa
 ---------------------------------
 Evento: nanoENAPOL de linguística computacional
 Título: Modelo de N-gramas para a questão do acento no Português Brasileiro
-
+---------------------------------
 
 2016
 
@@ -26,7 +27,7 @@ Título: N-gramas e o acento no Português Brasileiro
 ---------------------------------
 Evento: III Workshop de linguística computacional
 Título: Abordagem computacional para a questão do acento no português brasileiro
-
+---------------------------------
 
 2017
 
@@ -35,7 +36,7 @@ Título: Extração de Dados Linguísticos da Internet
 ---------------------------------
 Evento: IV Workshop de linguística computacional
 Título: Perspectivas na Análise de Textos Não-Estruturados
-
+---------------------------------
 
 2018
 
@@ -47,3 +48,4 @@ Título: Automatically extracting synonyms in Brazilian Portuguese
 ---------------------------------
 Evento: V Workshop de linguística computacional
 Título: Primeiros experimentos com o SICK-BR
+---------------------------------
